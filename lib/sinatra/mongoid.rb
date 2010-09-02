@@ -16,11 +16,12 @@ module Sinatra
         app.set :mongo_password, ENV['MONGOID_PASSWORD']
 
         Mongoid.database = Mongo::Connection.new(app.mongo_host,app.mongo_port).
-                                             db(app.mongo_db)
+        db(app.mongo_db)
         if app.mongo_user
-         Mongoid.database.authenticate(app.mongo_user,
-                                       app.mongo_password)
-        
+          Mongoid.database.authenticate(app.mongo_user,
+          app.mongo_password)
+
+        end
       end
     end
   end
